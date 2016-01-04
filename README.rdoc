@@ -1,4 +1,4 @@
-== README
+                                    # README
 
 Hey,
 
@@ -6,61 +6,54 @@ I am Just exercise App.
 Using latest rails version 4.2.3 but we can use any one.
 
 Models:
+>Organization:
+- domain attributes: :name, :public_name, :org_type, :pricing_policy
+- Type can be "Show room", "Service", "Dealer"
 
-Organization
-	domain attributes:
-	:name, :public_name, :org_type, :pricing_policy
-	Type can be "Show room", "Service", "Dealer"
+>Model ( refers to the Car Model ) is linked with an Organization : 
+- domain attributes: 	:name, :slug
 
-Model ( refers to the Car Model )
-is linked with an Organization
-	domain attributes:
-	:name, :slug
+>ModelType is linked with an Model: 
+- domain attributes: 	:name, :slug, :model_type_code, :base_price
 
-ModelType
-is linked with an Model
-	domain attributes:
-	:name, :slug, :model_type_code, :base_price
+>Having user interface for create Organization, Model, ModelType.
 
-Having user interface for create Organization, Model, ModelType
-
-Public API Interface responding to the following requests:
-	#1 [GET] models/:model_slug/model_types
+>Public API Interface responding to the following requests:
+- #1 [GET] models/:model_slug/model_types
 		returns list of an models and models types, for each of the model types
 		returns 'total_price' calculated based on the 'pricing_policy' logic
 
-	#2 [POST] models/:model_slug/model_types_price/:model_type_slug
-		Returns model_type's data, including calculated total_price based on the organization
-		'pricing policy' for the given model_type considering base_price passed as a POST
+- #2 [POST] models/:model_slug/model_types_price/:model_type_slug
+		Returns model_type's data, including calculated total_price based on the     organization. 'pricing policy' for the given model_type considering base_price passed as a POST
 
 
-Authentication method:
-	Using HTTP Basic Authentication Method for securing these ApIs.
-	Username = "admin"
-	Password = "admin"
+> Authentication method:
+- Using HTTP Basic Authentication Method for securing these ApIs.
+-   Username = "admin"
+- Password = "admin"
 
 Logic for calculating model type price writen in total_price.rb under lib folder.
 
-where margin is a dynamic factor and depends on the type of the pricing policy:
+> where margin is a dynamic factor and depends on the type of the pricing policy:
 	For the different types of policies can be describe in the following way:
-	"Flexible":
-	margin is equal, how many letters 'a' can you fnd on this site http://reuters.com
+	
+>"Flexible":
+- margin is equal, how many letters 'a' can you fnd on this site http://reuters.com
 	divided by 100
 	total_price = base_price * margin
-	"Fixed"
-	margin is equal, how many words 'status' can you fnd on site
+>"Fixed"
+- margin is equal, how many words 'status' can you fnd on site
 	https://developer.github.com/v3/#http-redirects
 	total_price = base_price + margin
-	"Prestige"
-	margin is equal, how many pubDate elements can you fnd on page
+> "Prestige"
+- margin is equal, how many pubDate elements can you fnd on page
 	http://www.yourlocalguardian.co.uk/sport/rugby/rss/
 	total_price = base_price + margin
 
+> Gems:
+- gem 'nokogiri'
+- gem 'friendly_id', '~> 5.1.0'
+- gem "rspec-rails"
 
-Gems:
-	gem 'nokogiri'
-	gem 'friendly_id', '~> 5.1.0'
-	gem "rspec-rails"
-
-DataStorage: 
-	sqlite3
+> DataStorage: 
+- sqlite3
