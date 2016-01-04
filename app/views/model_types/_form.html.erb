@@ -1,0 +1,20 @@
+<%= form_for([@model, @model_type]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+<%= f.hidden_field :model_id, :value => @model.id %><br>
+  </div>
+  <div class="field">
+    <%= f.label :model_type_code %><br>
+    <%= f.text_field :model_type_code %>
+  </div>
+  <div class="field">
+    <%= f.label :base_price %><br>
+    <%= f.text_field :base_price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

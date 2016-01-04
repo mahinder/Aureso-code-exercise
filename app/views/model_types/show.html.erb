@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @model_type.name %>
+</p>
+
+
+<p>
+  <strong>Model type code:</strong>
+  <%= @model_type.model_type_code %>
+</p>
+
+<p>
+  <strong>Base price:</strong>
+  <%= @model_type.base_price %>
+</p>
+
+<%= link_to 'Edit', edit_model_model_type_path(@model_type.model,@model_type) %> |
+<%= link_to 'Back', model_model_types_path %>

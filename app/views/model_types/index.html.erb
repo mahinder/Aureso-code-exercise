@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Model Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Slug</th>
+      <th>Model type code</th>
+      <th>Base price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @model_types.each do |model_type| %>
+      <tr>
+        <td><%= model_type.name %></td>
+        <td><%= model_type.slug %></td>
+        <td><%= model_type.model_type_code %></td>
+        <td><%= model_type.base_price %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Model type', new_model_model_type_path(params["model_id"]) %>
