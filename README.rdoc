@@ -41,10 +41,12 @@ Logic for calculating model type price writen in total_price.rb under lib folder
 - margin is equal, how many letters 'a' can you fnd on this site http://reuters.com
 	divided by 100
 	total_price = base_price * margin
+
 >"Fixed"
 - margin is equal, how many words 'status' can you fnd on site
 	https://developer.github.com/v3/#http-redirects
 	total_price = base_price + margin
+
 > "Prestige"
 - margin is equal, how many pubDate elements can you fnd on page
 	http://www.yourlocalguardian.co.uk/sport/rugby/rss/
