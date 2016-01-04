@@ -6,7 +6,7 @@ I am Just exercise App.
 Using latest rails version 4.2.3 but we can use any one.
 
 Models:
->Organization:
+Organization:
 - domain attributes: :name, :public_name, :org_type, :pricing_policy
 - Type can be "Show room", "Service", "Dealer"
 
